@@ -4,7 +4,7 @@ const UserContext = createContext();
 
 const ContextProvider = ({ children }) => {
   // Tools
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const [required, setRequired] = useState(false);
 
   // Data

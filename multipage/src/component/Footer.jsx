@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../context/context";
 
 export const Footer = () => {
-  const { page, setPage, personInfo, required, setRequired } =
+  const { page, setPage, personInfo, required, setRequired, plan, status } =
     useGlobalContext();
   const handleNextBtn = () => {
     if (
@@ -14,8 +14,10 @@ export const Footer = () => {
     } else {
       setRequired(false);
       setPage(page + 1);
+      console.log(personInfo);
+      console.log(status);
+      console.log(plan);
     }
-
   };
 
   const handlePrevBtn = () => {

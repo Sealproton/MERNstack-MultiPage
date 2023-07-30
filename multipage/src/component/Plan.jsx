@@ -1,5 +1,4 @@
 import { useGlobalContext } from "../context/context";
-import { useState } from "react";
 import arcade from "../../assets/images/icon-arcade.svg";
 import advance from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
@@ -15,27 +14,35 @@ export const Plan = () => {
     },
     { img: pro, plan: "Pro", price: status === "monthly" ? 15 : 150 },
   ];
+
   return (
-    <section className="absolute flex flex-col p-5 bg-white shadow-xl w-[90%] left-[5%] top-[100px] h-[460px] rounded-xl">
+    <section className="absolute flex flex-col pl-5 pt-5 bg-white shadow-xl w-[90%] left-[5%] top-[100px] h-[460px] rounded-xl">
       <h1 className="text-[1.3rem] font-bold text-[#02295a]">
         Select Your Plan
       </h1>
       <p className="pt-1 text-gray-400 mb-2">
         You have the option of monthly or yearly billing.
       </p>
-      {planList.map(({ img, plan, price }) => {
+      {/* planList----------------------------------------------------------------- */}
+      {planList.map((thisplan) => {
+        const { img, price } = thisplan;
         return (
           <div
-            key={plan}
-            className="flex h-[80px] border-[1px] border-gray-300 mt-2 p-3 rounded-xl"
+            key={planList.plan}
+            className={`flex cursor-pointer h-[80px] border-[1px]  mt-2 p-3 rounded-xl ${
+              thisplan.plan === plan
+                ? "border-[#02295a] bg-[#f0f6ff]"
+                : "border-gray-300"
+            }`}
+            onClick={() => setPlan(thisplan.plan)}
           >
             <img src={img} className="w-[40px] h-[40px]" />
             <div
               className={`ml-4 ${
-                status === "yearly" ? "leading-4" : "leading-6"
+                status === "yearly" ? "leading-5" : "leading-6"
               }`}
             >
-              <h1 className="font-bold text-[#02295a]">{plan}</h1>
+              <h1 className="font-bold text-[#02295a]">{thisplan.plan}</h1>
               <p className="text-[0.85rem] text-gray-400">
                 ${price}/{status === "monthly" ? "mo" : "yr"}
               </p>
@@ -46,9 +53,9 @@ export const Plan = () => {
           </div>
         );
       })}
-      <div className="flex justify-center items-center bg-gray-100 mt-5 h-[50px] gap-4">
+      <div className="flex justify-center items-center bg-gray-100 mt-5 h-[50px] gap-4 shadow-lg">
         <h2
-          className="text-[#02295a] font-bold"
+          className="text-[#02295a] cursor-pointer font-bold"
           onClick={() => setStatus("monthly")}
         >
           Monthly
@@ -60,13 +67,13 @@ export const Plan = () => {
           }
         >
           <div
-            className={`w-[15px] h-[15px] rounded-full transition-transform duration-300 bg-white ${
+            className={`w-[15px] cursor-pointer h-[15px] rounded-full transition-transform duration-300 bg-white ${
               status === "yearly" ? "translate-x-6" : "translate-x-0"
             }`}
           ></div>
         </div>
         <h2
-          className="text-[#02295a] font-bold"
+          className="text-[#02295a] cursor-pointer font-bold"
           onClick={() => setStatus("yearly")}
         >
           Yearly
