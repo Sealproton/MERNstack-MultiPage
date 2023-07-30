@@ -54,14 +54,16 @@ export const Plan = () => {
           Monthly
         </h2>
         <div
-          className={`flex items-center transition-all duration-1000 p-1 w-[45px] h-[22px] rounded-full bg-[#02295a] ${
-            status === "monthly" ? "justify-start" : "justify-end"
-          } `}
+          className={`flex items-center p-1 w-[45px] h-[22px] rounded-full bg-[#02295a]  `}
           onClick={() =>
             status === "monthly" ? setStatus("yearly") : setStatus("monthly")
           }
         >
-          <div className="w-[15px] h-[15px] rounded-full transform transition-transform  bg-white"></div>
+          <div
+            className={`w-[15px] h-[15px] rounded-full transition-transform duration-300 bg-white ${
+              status === "yearly" ? "translate-x-6" : "translate-x-0"
+            }`}
+          ></div>
         </div>
         <h2
           className="text-[#02295a] font-bold"
