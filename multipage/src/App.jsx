@@ -1,3 +1,4 @@
+import { AddOn } from "./component/AddOn";
 import { Footer } from "./component/Footer";
 import { PersonInfo } from "./component/PersonInfo";
 import { Plan } from "./component/Plan";
@@ -11,6 +12,7 @@ function App() {
       <div>
         {page === 1 && <PersonInfo />}
         {page === 2 && <Plan />}
+        {page === 3 && <AddOn />}
         <Footer />
       </div>
     </div>

@@ -1,5 +1,4 @@
 import { useGlobalContext } from "../context/context";
-import { useState } from "react";
 
 export const PersonInfo = () => {
   const { required, personInfo, setPersonInfo } = useGlobalContext();
@@ -22,6 +21,7 @@ export const PersonInfo = () => {
       <input
         type="text"
         name="name"
+        key="name"
         placeholder="e.g. Stephen King"
         value={personInfo.name}
         className={`border-[1px] rounded-md h-[40px] pl-3 font-[600] text-[0.9rem] ${
@@ -44,6 +44,7 @@ export const PersonInfo = () => {
       <input
         type="text"
         name="email"
+        key="email"
         placeholder="e.g. stephenking@loram.com"
         value={personInfo.email}
         className={`border-[1px] rounded-md h-[40px] pl-3 font-[600] text-[0.9rem] ${
@@ -68,6 +69,7 @@ export const PersonInfo = () => {
       <input
         type="text"
         name="phone"
+        key="phone"
         value={personInfo.phone}
         placeholder="e.g. +1 234 567 890"
         className={`border-[1px] rounded-md h-[40px] pl-3 font-[600] text-[0.9rem] ${

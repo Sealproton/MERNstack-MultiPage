@@ -30,11 +30,11 @@ export const Plan = () => {
           <div
             key={planList.plan}
             className={`flex cursor-pointer h-[80px] border-[1px]  mt-2 p-3 rounded-xl ${
-              thisplan.plan === plan
+              thisplan.plan === plan.plan
                 ? "border-[#02295a] bg-[#f0f6ff]"
                 : "border-gray-300"
             }`}
-            onClick={() => setPlan(thisplan.plan)}
+            onClick={() => setPlan({ plan: thisplan.plan, price: price })}
           >
             <img src={img} className="w-[40px] h-[40px]" />
             <div
@@ -56,14 +56,20 @@ export const Plan = () => {
       <div className="flex justify-center items-center bg-gray-100 mt-5 h-[50px] gap-4 shadow-lg">
         <h2
           className="text-[#02295a] cursor-pointer font-bold"
-          onClick={() => setStatus("monthly")}
+          onClick={() =>
+            status === "monthly"
+              ? setStatus("monthly")
+              : (setPlan(""), setStatus("monthly"))
+          }
         >
           Monthly
         </h2>
         <div
           className={`flex items-center p-1 w-[45px] h-[22px] rounded-full bg-[#02295a]  `}
           onClick={() =>
-            status === "monthly" ? setStatus("yearly") : setStatus("monthly")
+            status === "monthly"
+              ? (setStatus("yearly"), setPlan(""))
+              : (setStatus("monthly"), setPlan(""))
           }
         >
           <div
@@ -74,7 +80,11 @@ export const Plan = () => {
         </div>
         <h2
           className="text-[#02295a] cursor-pointer font-bold"
-          onClick={() => setStatus("yearly")}
+          onClick={() =>
+            status === "yearly"
+              ? setStatus("yearly")
+              : (setPlan(""), setStatus("yearly"))
+          }
         >
           Yearly
         </h2>

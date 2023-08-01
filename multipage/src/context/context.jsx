@@ -6,7 +6,7 @@ const ContextProvider = ({ children }) => {
   // Tools
   const [page, setPage] = useState(1);
   const [required, setRequired] = useState(false);
-
+  const [choose, setchoose] = useState({ OS: false, LS: false, CP: false });
   // Data
   const [personInfo, setPersonInfo] = useState({
     name: "",
@@ -15,6 +15,7 @@ const ContextProvider = ({ children }) => {
   });
   const [status, setStatus] = useState("monthly");
   const [plan, setPlan] = useState("");
+  const [addOn, setAddOn] = useState("");
 
   return (
     <UserContext.Provider
@@ -29,6 +30,10 @@ const ContextProvider = ({ children }) => {
         setStatus,
         plan,
         setPlan,
+        setAddOn,
+        addOn,
+        choose,
+        setchoose,
       }}
     >
       {children}

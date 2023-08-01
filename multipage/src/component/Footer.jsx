@@ -1,8 +1,15 @@
 import { useGlobalContext } from "../context/context";
 
 export const Footer = () => {
-  const { page, setPage, personInfo, required, setRequired, plan, status } =
-    useGlobalContext();
+  const {
+    page,
+    setPage,
+    personInfo,
+    addOn,
+    setRequired,
+    plan,
+    status,
+  } = useGlobalContext();
   const handleNextBtn = () => {
     if (
       personInfo.name === "" ||
@@ -17,6 +24,7 @@ export const Footer = () => {
       console.log(personInfo);
       console.log(status);
       console.log(plan);
+      console.log(addOn);
     }
   };
 
