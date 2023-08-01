@@ -33,7 +33,7 @@ export const AddOn = () => {
   }, [choose]);
 
   return (
-    <section className="absolute flex flex-col pl-5 pr-5 pt-5 bg-white shadow-xl w-[90%] left-[5%] top-[100px] h-[460px] rounded-xl">
+    <section className="absolute flex flex-col pl-5 pr-5 pt-5 bg-white shadow-xl w-[90%] left-[5%] top-[100px] h-[360px] rounded-xl">
       <h1 className="text-[1.3rem] font-bold text-[#02295a]">Pick add-ons</h1>
       <p className="pt-1 text-gray-400 mb-2">
         Add-ons help enhance your gaming exeperience.

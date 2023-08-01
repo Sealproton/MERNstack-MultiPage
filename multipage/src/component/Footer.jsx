@@ -1,15 +1,8 @@
 import { useGlobalContext } from "../context/context";
 
 export const Footer = () => {
-  const {
-    page,
-    setPage,
-    personInfo,
-    addOn,
-    setRequired,
-    plan,
-    status,
-  } = useGlobalContext();
+  const { page, setPage, personInfo, addOn, setRequired, plan, status } =
+    useGlobalContext();
   const handleNextBtn = () => {
     if (
       personInfo.name === "" ||
@@ -49,7 +42,7 @@ export const Footer = () => {
         className="pointer bg-[#02295a]  text-[#f0f6ff] text-[0.9rem] rounded-md h-[40px] w-[100px]"
         onClick={handleNextBtn}
       >
-        Next Step
+        {page === 4 ? "Confirm" : "Next Step"}
       </button>
     </section>
   );

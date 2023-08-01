@@ -4,7 +4,8 @@ import advance from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
 
 export const Plan = () => {
-  const { status, setStatus, plan, setPlan } = useGlobalContext();
+  const { status, setStatus, plan, setPlan, setAddOn, setchoose } =
+    useGlobalContext();
   const planList = [
     { img: arcade, plan: "Arcade", price: status === "monthly" ? 9 : 90 },
     {
@@ -59,7 +60,10 @@ export const Plan = () => {
           onClick={() =>
             status === "monthly"
               ? setStatus("monthly")
-              : (setPlan(""), setStatus("monthly"))
+              : (setPlan(""),
+                setStatus("monthly"),
+                setAddOn(""),
+                setchoose({ OS: false, LS: false, CP: false }))
           }
         >
           Monthly
@@ -68,8 +72,14 @@ export const Plan = () => {
           className={`flex items-center p-1 w-[45px] h-[22px] rounded-full bg-[#02295a]  `}
           onClick={() =>
             status === "monthly"
-              ? (setStatus("yearly"), setPlan(""))
-              : (setStatus("monthly"), setPlan(""))
+              ? (setStatus("yearly"),
+                setPlan(""),
+                setAddOn(""),
+                setchoose({ OS: false, LS: false, CP: false }))
+              : (setStatus("monthly"),
+                setPlan(""),
+                setAddOn(""),
+                setchoose({ OS: false, LS: false, CP: false }))
           }
         >
           <div
@@ -83,7 +93,10 @@ export const Plan = () => {
           onClick={() =>
             status === "yearly"
               ? setStatus("yearly")
-              : (setPlan(""), setStatus("yearly"))
+              : (setPlan(""),
+                setStatus("yearly"),
+                setAddOn(""),
+                setchoose({ OS: false, LS: false, CP: false }))
           }
         >
           Yearly

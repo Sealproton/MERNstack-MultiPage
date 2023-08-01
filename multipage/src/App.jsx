@@ -3,6 +3,7 @@ import { Footer } from "./component/Footer";
 import { PersonInfo } from "./component/PersonInfo";
 import { Plan } from "./component/Plan";
 import { SideBar } from "./component/SideBar";
+import { Finish } from "./component/finish";
 import { useGlobalContext } from "./context/context";
 function App() {
   const { page } = useGlobalContext();
@@ -13,6 +14,8 @@ function App() {
         {page === 1 && <PersonInfo />}
         {page === 2 && <Plan />}
         {page === 3 && <AddOn />}
+        {page === 4 && <Finish />}
+
         <Footer />
       </div>
     </div>

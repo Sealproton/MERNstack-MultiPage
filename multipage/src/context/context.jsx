@@ -7,6 +7,7 @@ const ContextProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [required, setRequired] = useState(false);
   const [choose, setchoose] = useState({ OS: false, LS: false, CP: false });
+
   // Data
   const [personInfo, setPersonInfo] = useState({
     name: "",
@@ -16,7 +17,7 @@ const ContextProvider = ({ children }) => {
   const [status, setStatus] = useState("monthly");
   const [plan, setPlan] = useState("");
   const [addOn, setAddOn] = useState("");
-
+  const [totalPrice, setTotalPrice] = useState(0);
   return (
     <UserContext.Provider
       value={{
@@ -34,6 +35,8 @@ const ContextProvider = ({ children }) => {
         addOn,
         choose,
         setchoose,
+        totalPrice,
+        setTotalPrice,
       }}
     >
       {children}
