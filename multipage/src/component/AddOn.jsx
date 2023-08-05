@@ -33,8 +33,10 @@ export const AddOn = () => {
   }, [choose]);
 
   return (
-    <section className="absolute flex flex-col pl-5 pr-5 pt-5 bg-white shadow-xl w-[90%] left-[5%] top-[100px] h-[360px] rounded-xl">
-      <h1 className="text-[1.3rem] font-bold text-[#02295a]">Pick add-ons</h1>
+    <section className="max-lg:absolute flex flex-col pl-5 pr-5 pt-5 bg-white shadow-xl w-[90%] left-[5%] top-[100px] h-[360px] rounded-xl lg:shadow-none lg:h-[85%]">
+      <h1 className="text-[1.3rem] font-bold text-[#02295a] lg:text-[2rem] lg:mt-2">
+        Pick add-ons
+      </h1>
       <p className="pt-1 text-gray-400 mb-2">
         Add-ons help enhance your gaming exeperience.
       </p>
@@ -50,7 +52,7 @@ export const AddOn = () => {
                 : index === 2 && choose.CP
                 ? "border-[#02295a] bg-[#f0f6ff]"
                 : "border-gray-200"
-            }`}
+            } cursor-pointer lg:mt-5 lg:h-[80px] lg:rounded-xl`}
             onClick={() => {
               index === 0 && setchoose({ ...choose, OS: !choose.OS });
               index === 1 && setchoose({ ...choose, LS: !choose.LS });
@@ -67,7 +69,7 @@ export const AddOn = () => {
                     : index === 2 && choose.CP
                     ? "bg-[#473dff]"
                     : "bg-white"
-                } `}
+                } lg:h-[25px] lg:w-[25px]`}
               >
                 <img
                   src={
@@ -84,11 +86,15 @@ export const AddOn = () => {
               </div>
             </div>
             <div className="w-[60%]">
-              <h1 className="text-[0.9rem] font-bold text-[#02295a]">{name}</h1>
-              <p className="text-[0.7rem] text-gray-500">{des}</p>
+              <h1 className="text-[0.9rem] font-bold text-[#02295a] lg:text-[1rem]">
+                {name}
+              </h1>
+              <p className="text-[0.7rem] text-gray-500 lg:text-[0.8rem]">
+                {des}
+              </p>
             </div>
             <div className=" w-[20%] pr-4 h-full flex justify-center items-center">
-              <h1 className="text-[0.7rem] font-bold text-[#473dff]">
+              <h1 className="text-[0.7rem] font-bold text-[#473dff] lg:text-[0.9rem]">
                 +${price}/{status === "yearly" ? "yr" : "mo"}
               </h1>
             </div>

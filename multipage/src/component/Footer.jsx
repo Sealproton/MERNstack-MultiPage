@@ -28,18 +28,22 @@ export const Footer = () => {
     <section
       className={`flex items-center ${
         page === 1 ? "justify-end" : "justify-between"
-      } p-5 w-[full] h-[80px] bg-white`}
+      } ${
+        page === 5 && "hidden"
+      } p-5 w-[full] h-[80px] bg-white lg:h-[20px] lg:pr-20`}
     >
       {page !== 1 && (
         <button
-          className="pointer text-gray-400  text-start  rounded-md h-[40px] w-[100px]"
+          className="pointer text-gray-400  text-start  rounded-md h-[40px] w-[100px] lg:font-bold"
           onClick={handlePrevBtn}
         >
           Go Back
         </button>
       )}
       <button
-        className="pointer bg-[#02295a]  text-[#f0f6ff] text-[0.9rem] rounded-md h-[40px] w-[100px]"
+        className={`pointer ${
+          page === 4 ? "bg-[#473dff]" : "bg-[#02295a]"
+        }  text-[#f0f6ff] text-[0.9rem] rounded-md h-[40px] w-[100px] lg:h-[55px] lg:w-[120px] lg:text-[1.2rem]`}
         onClick={handleNextBtn}
       >
         {page === 4 ? "Confirm" : "Next Step"}
