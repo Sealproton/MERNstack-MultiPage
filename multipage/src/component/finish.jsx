@@ -4,6 +4,8 @@ import { useGlobalContext } from "../context/context";
 export const Finish = () => {
   const { status, addOn, plan, setPage, totalPrice, setTotalPrice } =
     useGlobalContext();
+
+// set total price using useEffect
   useEffect(() => {
     const planPrice = plan.price;
     const addOnPrice = addOn.reduce((prev, curr) => {
@@ -11,6 +13,9 @@ export const Finish = () => {
     }, 0);
     setTotalPrice(planPrice + addOnPrice);
   }, []);
+
+
+
   return (
     <section className="absolute flex flex-col p-5 bg-white shadow-xl w-[90%] left-[5%] top-[100px]  rounded-xl">
       <h1 className="text-[1.3rem] font-bold text-[#02295a]">Finishing up</h1>
