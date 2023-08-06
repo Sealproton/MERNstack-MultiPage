@@ -1,8 +1,35 @@
 import { useGlobalContext } from "../context/context";
-
+import axios from "axios";
 export const Footer = () => {
-  const { page, setPage, personInfo, addOn, setRequired, plan, status } =
-    useGlobalContext();
+  const {
+    page,
+    setPage,
+    personInfo,
+    addOn,
+    setRequired,
+    plan,
+    status,
+    totalPrice,
+    setMessage,
+  } = useGlobalContext();
+  const schema = {
+    name: personInfo.name,
+    email: personInfo.email,
+    phoneNumber: personInfo.phone,
+    status: status,
+    plan: plan.plan,
+    addOn: Array.isArray(addOn) ? addOn.map(({ name }) => name) : [],
+    totalPrice: totalPrice,
+  };
+  const addDataToDB = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/data", schema);
+      setMessage(response.data.message);
+    } catch (error) {
+      console.log(error);
+      setMessage("error");
+    }
+  };
   const handleNextBtn = () => {
     if (
       personInfo.name === "" ||
@@ -10,14 +37,12 @@ export const Footer = () => {
       personInfo.phone === ""
     ) {
       setRequired(true);
-      setPage(page);
+      setPage(1);
     } else {
       setRequired(false);
+      page === 4 && addDataToDB();
+      console.log(schema);
       setPage(page + 1);
-      console.log(personInfo);
-      console.log(status);
-      console.log(plan);
-      console.log(addOn);
     }
   };
 

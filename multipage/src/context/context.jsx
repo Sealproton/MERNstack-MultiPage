@@ -7,7 +7,7 @@ const ContextProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [required, setRequired] = useState(false);
   const [choose, setchoose] = useState({ OS: false, LS: false, CP: false });
-
+  const [message, setMessage] = useState("");
   // ----------------------------Data--------------------------------------------------
   const [personInfo, setPersonInfo] = useState({
     name: "",
@@ -19,9 +19,10 @@ const ContextProvider = ({ children }) => {
   // {plan:'',price:0}
   const [plan, setPlan] = useState("");
   // [{name:'',price:0}]
-  const [addOn, setAddOn] = useState("");
+  const [addOn, setAddOn] = useState([{ name: "", price: 0 }]);
   // TotalPrice set at finish component
   const [totalPrice, setTotalPrice] = useState(0);
+
   return (
     <UserContext.Provider
       value={{
@@ -41,6 +42,8 @@ const ContextProvider = ({ children }) => {
         setchoose,
         totalPrice,
         setTotalPrice,
+        message,
+        setMessage,
       }}
     >
       {children}
