@@ -4,17 +4,17 @@
 
 Multi-Step-Form - Submit your client demand
 
-Features
-Form submitting - User data correction with conclusion on product and price
-API - Save your client data on NO-SQL database
+## Features
 
-Authors
-Sealproton
+- **Form submitting**: User data correction with conclusion on product and price.
+- **API**: Save your client data on NO-SQL database.
 
-Tech Stack
-Client: HTML, CSS, JavaScript, React, Tailwind CSS
-Server: Node.js, Express
-Data & Asset Management: MongoDB(Atlas)
-Other Tools: Mongoose
-Version Control: Git, GitHub
+## Authors
+- [Sealproton](https://github.com/Sealproton)
+
+## Tech Stack
+- **Client**: HTML, CSS, JavaScript, React, Tailwind CSS
+- **Server**: Node.js, Express
+- **Data & Asset Management**: MongoDB (Atlas)
+- **Building Tool**: Mongoose
 
